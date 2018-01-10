@@ -8,6 +8,7 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title>Tecninfor</title>
+	<link rel="shotcut icon" href="favicon.png" type="image/x.png">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="description" content="Loja de reparações e venda de produtos informaticos" />
 	<meta name="keywords" content="reparação, smartphone, tablet, computador, software, tinteiros, toners" />
@@ -65,16 +66,24 @@
 					<li><a href="artigos.php">Artigos</a></li>
 					<li><a href="sobre.php">Sobre</a></li>
 					<li><a href="contatos.php">Contatos</a></li>
-					<li><a href="login.php">Login</a></li>
-				</ul>
-			</nav>
-
-			<div class="fh5co-footer">
-				<p><small>&copy; 2017 Daniel Almeida</span></small></p>
-				<ul>
-					<li><a href="https://www.facebook.com/tecninfor/"><i class="icon-facebook"></i></a></li>
-				</ul>
-			</div>
+					<li><a href="compras.php">Carrinho</a></li>
+					<p></p>
+		
+<?php
+//INICIO A SESSÃO
+session_start();
+ 
+//Verifico se o usuário está logado no sistema
+	if (!isset($_SESSION["logado"]) || $_SESSION["logado"] != TRUE) {
+    	echo "<li>Não tem sessão iniciada</li>";
+		echo '<small><a href="login.php?token='.md5(session_id()).'">Entrar</a></small>';
+	}
+	else {
+    	echo "<li>Olá, ".$_SESSION["nome"]."</li>";
+		echo '<small><a href="logout.php?token='.md5(session_id()).'">Sair</a></small>';
+	}
+?>	
+			</ul></nav>
 
 		</aside>
 
@@ -93,6 +102,13 @@
 						</div>
 
 					</div>
+				
+					<div class="clearfix visible-md-block"></div>
+					
+				</div>
+			</div>
+		</div>
+	</div>
 
 	<!-- jQuery -->
 	<script src="js/jquery.min.js"></script>

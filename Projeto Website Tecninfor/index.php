@@ -102,7 +102,7 @@ session_start();
 					<div class="owl-carousel-fullwidth animate-box" data-animate-effect="fadeInLeft">
 		            <div class="item">
 		            	
-		              	<p class="text-center quote">&ldquo; Fundada no dia 1 de Abril de 2015, esta loja em Avintes tem como objetivo, melhorar a vida dos seus clientes.  &rdquo; </p>
+		              	<p class="text-center quote">&ldquo; Fundada no dia 1 de Abril de 2015, esta loja em Avintes, repara todo o tipo de produtos eletrônicos.  &rdquo; </p>
 		            </div>
 		            <div class="item">
 		            	
@@ -125,7 +125,7 @@ session_start();
 						</div>
 						<div class="fh5co-card animate-box" data-animate-effect="fadeInLeft">
 							<h5>Promoções</h5>
-							<p> Estamos com artigos em promoção de natal.</p>
+							<p> Estamos com artigos em promoção.</p>
 							<p><a href="promocoes.php" class="btn btn-md btn-primary">Ler mais</a></p>
 						</div>
 

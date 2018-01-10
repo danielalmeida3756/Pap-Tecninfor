@@ -8,9 +8,16 @@ $dbname ="tecninfor";
 
 $conn = new mysqli($host, $login, $password, $dbname) or print (mysql_error());
 
- 
-	$consulta = "SELECT * FROM produtos ORDER BY id ASC ";
-	$resultado_prod = mysqli_query($conn, $consulta);
+$id_prod = $_GET['cod'];
+
+	$consulta = mysqli_query($conn, "SELECT * FROM produtos where id= '$id_prod'");
+	$resultado_prod = mysqli_fetch_array($consulta);
+	
+$nome= $resultado_prod['nome_prod'];	
+$imagem= $resultado_prod['diretorio_prod'].$resultado_prod['imagem_prod'];
+$descricao = $resultado_prod['descricao_prod'];
+$preco = $resultado_prod['preco_prod'];
+
 ?>
 <!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
@@ -20,14 +27,14 @@ $conn = new mysqli($host, $login, $password, $dbname) or print (mysql_error());
 	<head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Tecninfor</title>
+	<title>Tecninfor </title>
 	<link rel="shotcut icon" href="favicon.png" type="image/x.png">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="description" content="Loja de reparações e venda de produtos informaticos" />
 	<meta name="keywords" content="reparação, smartphone, tablet, computador, software, tinteiros, toners" />
 	<meta name="author" content="DanielAlmeida" />
 
-
+  
 
   	<!-- Facebook and Twitter integration -->
 	<meta property="og:title" content=""/>
@@ -76,7 +83,7 @@ $conn = new mysqli($host, $login, $password, $dbname) or print (mysql_error());
 			<nav id="fh5co-main-menu" role="navigation">
 				<ul>
 					<li> <a href="index.php">Home</a></li>
-					<li class="fh5co-active"><a href="artigos.php">Artigos</a></li>
+					<li><a href="artigos.php">Artigos</a></li>
 					<li><a href="sobre.php">Sobre</a></li>
 					<li><a href="contatos.php">Contatos</a></li>
 					<li><a href="compras.php">Carrinho</a></li>
@@ -92,38 +99,60 @@ $conn = new mysqli($host, $login, $password, $dbname) or print (mysql_error());
 		echo '<small><a href="logout.php?token='.md5(session_id()).'">Sair</a></small>';
 	}
 ?> 
-				
-			</ul></nav>
+				</ul>
+			</nav>
 
 		</aside>
 
 		<div id="fh5co-main">
 
 			<div class="fh5co-narrow-content">
-				<h2 class="fh5co-heading animate-box" data-animate-effect="fadeInLeft">Artigos disponiveis para venda</span></h2>
-				<div class="row animate-box" data-animate-effect="fadeInLeft">
-					<div class="col-md-4 col-sm-6 col-xs-6 work-item" style = "float: left; position: relative"  >
-					<?php
-						$linha=mysqli_fetch_assoc($resultado_prod);
-					do{
-					?>
-
-						<a href="verartigo.php?cod=<?php echo $linha['id'] ?>">
-							<td class="text-center"><img src= "<?php echo $linha['diretorio_prod'].$linha['imagem_prod']?> " class="img-responsive"></td>
-							<h3 class="fh5co-work-title"><td class="text-center"><?php echo $linha['nome_prod']?></td></h3>
-							<p><td class="text-center"><?php echo $linha['sub_prod']?></td> </p>
-						</a>
-					<?php
-					}while($linha=mysqli_fetch_assoc($resultado_prod));
-					?>
+				<div class="row">
+				
+					<div class="col-md-12 animate-box" data-animate-effect="fadeInLeft">
+						<figure class="text-center">
+							<img src="<?php echo $imagem ?> " class="img-responsive" alt="Erro ao carregar a imagem !">
+						</figure>
 					</div>
 					
-					<div class="clearfix visible-md-block visible-sm-block"></div>
+					<div class="col-md-8 col-md-offset-2 animate-box" data-animate-effect="fadeInLeft">
+					
+					
+						<div class="col-md-9 col-md-push-3">
+							<h1><?php echo $nome ?></h1>
+							<p><?php echo $descricao?></p>
+
+						</div>
+
+						<div class="col-md-3 col-md-pull-9 fh5co-services">
+							<h3>Comprar</h3>
+							<ul>
+								<li></li>
+								<h2><?php echo $preco ?> €</h2>
+								
+								<li>Adicionar ao seu carrinho</li>
+								</p><p><a href="off.php?cod=<?php echo $id_prod; ?>" class="btn btn-primary btn-outline">Adicionar</a></p>
+							</ul>
+						</div>
 
 					</div>
-					<div class="clearfix visible-md-block"></div>
-					
 				</div>
+
+				<div class="row work-pagination animate-box" data-animate-effect="fadeInLeft">
+					<div class="col-md-8 col-md-offset-2 col-sm-12 col-sm-offset-0">
+
+						<div class="col-md-4 col-sm-4 col-xs-4 text-center">
+							<a href="verartigos.php?cod=<?php echo $_GET['cod']; ?>"><i class="icon-long-arrow-left"></i> <span> Artigo anterior</span></a>
+						</div>
+						<div class="col-md-4 col-sm-4 col-xs-4 text-center">
+							<a href="artigos.php"><i class="icon-th-large"></i></a>
+						</div>
+						<div class="col-md-4 col-sm-4 col-xs-4 text-center">
+							<a href="verartigos.php?cod=<?php echo $_GET['cod']; ?>"><span>Artigo seguinte </span> <i class="icon-long-arrow-right"></i></a>
+						</div>
+					</div>
+				</div>
+
 			</div>
 		</div>
 	</div>
@@ -142,9 +171,11 @@ $conn = new mysqli($host, $login, $password, $dbname) or print (mysql_error());
 	<script src="js/jquery.waypoints.min.js"></script>
 	<!-- Counters -->
 	<script src="js/jquery.countTo.js"></script>
-		
+	
+	
 	<!-- MAIN JS -->
 	<script src="js/main.js"></script>
 
 	</body>
 </html>
+

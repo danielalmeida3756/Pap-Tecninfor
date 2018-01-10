@@ -124,8 +124,10 @@ $nivel = $_SESSION['permicao'];
 				<div class="col-md-6 col-sm-6 col-xs-12 pad-l-3 col-lg-8 col-lg-offset-2">
                 <div class="form-group contact-field">
 				
-			<label for="imagem">Imagem:</label>
-			<input type="file" name="produto_imagem" id="imagem_prod"/>
+			<label for="recipient-name" class="from-control-label">Imagem:</label>
+			<button><input type="file" name="produto_imagem" class="from-control" id="imagem_prod">
+			</button>
+					
 				
 					</div></div>
 		    <div class="col-md-6 col-sm-6 col-xs-12 text-center col-lg-offset-0 col-lg-12">

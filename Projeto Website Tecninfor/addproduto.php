@@ -124,16 +124,15 @@ $nivel = $_SESSION['permicao'];
 				<div class="col-md-6 col-sm-6 col-xs-12 pad-l-3 col-lg-8 col-lg-offset-2">
                 <div class="form-group contact-field">
 					
-			<?php
-				
-			?>	
-			<label for="imagem">Imagem:</label>
-			<form action="upload.php" method="post" enctype="multipart/form-data">
-			<input type="file" name="produto_imagem" id="imagem_prod"/>
-			</form>
+
+			<label for="recipient-name" class="from-control-label">Imagem:</label>
+			<button><input type="file" name="produto_imagem" class="from-control" id="imagem_prod">
+			</button>
+					
+
 					</div></div>
 		    <div class="col-md-6 col-sm-6 col-xs-12 text-center col-lg-offset-0 col-lg-12">
-							<p><input type='submit' value="Enviar" name='Add_produto' class="btn btn-primary btn-outline" /></p>
+							<p><input type="submit" value="Enviar" name='Add_produto' class="btn btn-primary btn-outline" /></p>
 				</div>
 		    
 			    <div id="msgSubmit" class="h3 text-center hidden">Está adicionado ! </div>

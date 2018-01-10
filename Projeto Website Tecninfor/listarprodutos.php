@@ -4,6 +4,18 @@ $nivel = $_SESSION['permicao'];
 	if ($nivel == 0){
 		header("Location: index.php");
 	}
+
+$host ="localhost";
+$login ="root";
+$password="";
+$dbname ="tecninfor";
+
+$conn = new mysqli($host, $login, $password, $dbname) or print (mysql_error());
+
+ 
+	$consulta = "SELECT * FROM produtos ORDER BY id ASC ";
+	$resultado_prod = mysqli_query($conn, $consulta);
+
 ?>
 
 <!DOCTYPE html>
@@ -102,14 +114,7 @@ $nivel = $_SESSION['permicao'];
 <div class="row animate-box" data-animate-effect="fadeInLeft">
 <?php
 
-$tecninfor=mysqli_connect('localhost','root','');
-$escolheBD=mysqli_select_db($tecninfor,'tecninfor');
-
-$pesquisa="select * from produtos";
-
-$resultado=mysqli_query($tecninfor,$pesquisa);
-
-$linha=mysqli_fetch_assoc($resultado);
+$linha=mysqli_fetch_assoc($resultado_prod);
 	
 ?>
 
@@ -136,12 +141,12 @@ do{
 <td class="text-center"><?php echo $linha['descricao_prod']?></td>
 <td class="text-center"><?php echo $linha['sub_prod']?></td>
 <td class="text-center"><?php echo $linha['preco_prod']?></td>
-<td class="text-center"><?php echo $linha['imagem_prod']?></td>	
+<td class="text-center"><img src= "<?php echo $linha['diretorio_prod'].$linha['imagem_prod']?>" width="100" height="auto"></td>	
 
-<td class="text-center"><a href='editproduto.php?cod=<?php echo $linha['id'] ?>'>Editar</a>&nbsp &nbsp &nbsp<a href='eliminarproduto.php?cod=<?php echo $linha['id'] ?>'>Eliminar</a></td></tr>
+<td class="text-center"><a href='editproduto.php?cod=<?php echo $linha['id'];?>'>Editar</a>&nbsp &nbsp &nbsp<a href='eliminarproduto.php?cod=<?php echo $linha['id'];?>&diretorio=<?php echo $linha['diretorio_prod'];?>&ficheiro=<?php echo $linha['imagem_prod']; ?>'>Eliminar</a></td></tr>
 
 <?php
-}while($linha=mysqli_fetch_assoc($resultado));
+}while($linha=mysqli_fetch_assoc($resultado_prod));
 ?>
 	
 </tbody>
