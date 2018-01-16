@@ -87,6 +87,25 @@ $nivel = $_SESSION['permicao'];
     	echo "<li>Olá, ".$_SESSION["nome"]."</li>";
 		echo '<small><a href="logout.php?token='.md5(session_id()).'">Sair</a></small>';
 	}
+					
+
+$host ="localhost";
+$login ="root";
+$password="";
+$dbname ="tecninfor";
+
+$conn = new mysqli($host, $login, $password, $dbname) or print (mysql_error());
+
+ $cod = $_GET['cod'];
+	$consulta =mysqli_query( $conn, "SELECT * FROM produtos WHERE id='$cod' ");
+	$resultado_prod = mysqli_fetch_array($consulta);
+
+$id= $resultado_prod['id'];	
+$nome= $resultado_prod['nome_prod'];	
+$imagem= $resultado_prod['diretorio_prod'].$resultado_prod['imagem_prod'];
+$descricao = $resultado_prod['descricao_prod'];
+$sub = $resultado_prod['sub_prod'];
+$preco = $resultado_prod['preco_prod'];
 ?>
 				
 			</ul></nav>
@@ -97,7 +116,7 @@ $nivel = $_SESSION['permicao'];
 				<h2> </h2>
 
         <div class="fh5co-narrow-content">
-				<h2 class="fh5co-heading animate-box col-lg-8 text-center col-lg-offset-2" data-animate-effect="fadeInLeft">  Editar produto <?php echo $_GET['cod']?></h2>
+				<h2 class="fh5co-heading animate-box col-lg-8 text-center col-lg-offset-2" data-animate-effect="fadeInLeft">  Editar produto <?php echo $nome; ?></h2>
 				<div class="row animate-box" data-animate-effect="fadeInLeft">
 				<div class="col-md-4 col-sm-6 col-xs-6 col-xxs-12 work-item  col-lg-12">
 					
@@ -105,27 +124,31 @@ $nivel = $_SESSION['permicao'];
 			<div id="fh5co-main">
 				<form method="post" name="contact-form" class="contact-form col-lg-7" enctype="multipart/form-data" action="editarproduto.php?cod=<?php echo $_GET['cod']; ?>">  
                 </div>
+				<div class="col-md-6 col-sm-6 col-xs-12 pad-l-3 col-lg-8 col-lg-offset-2">
+                <div class="form-group contact-field">
+                    <input name="id_produto" type="name" class="form-control" id="id" value='<?php echo $id; ?>' >
+				   </div> </div>
                <div class="col-md-6 col-sm-6 col-xs-12 pad-l-3 col-lg-8 col-lg-offset-2">
                 <div class="form-group contact-field">
-                    <input name="produto" type="name" class="form-control" id="nome_prod" placeholder="Nome" >
+                    <input name="produto" type="name" class="form-control" id="nome_prod" value='<?php echo $nome; ?>' >
 				   </div> </div>
              <div class="col-md-6 col-sm-6 col-xs-12 col-lg-8 col-lg-offset-2">
                 <div class="form-group">
-                    <input name="produto_descricao" type="name" class="form-control" id="descricao_prod" placeholder="Descrição" >
+                    <input name="produto_descricao" type="name" class="form-control" id="descricao_prod" value='<?php echo $descricao; ?>'" >
 				 </div> </div>
 			<div class="col-md-6 col-sm-6 col-xs-12 col-lg-8 col-lg-offset-2">
                 <div class="form-group">
-                    <input name="produto_sub" type="name" class="form-control" id="sub_prod" placeholder="Sub descrição" >
+                    <input name="produto_sub" type="name" class="form-control" id="sub_prod" value='<?php echo $sub; ?>' >
 				 </div> </div>
             <div class="col-md-6 col-sm-6 col-xs-12 pad-l-3 col-lg-8 col-lg-offset-2">
                 <div class="form-group contact-field">
-                    <input name="produto_preco" type="int" class="form-control" id="preco_prod" placeholder="Preço" >  
+                    <input name="produto_preco" type="int" class="form-control" id="preco_prod" value='<?php echo $preco; ?>' >  
 			</div>
 				<div class="col-md-6 col-sm-6 col-xs-12 pad-l-3 col-lg-8 col-lg-offset-2">
                 <div class="form-group contact-field">
 				
 			<label for="recipient-name" class="from-control-label">Imagem:</label>
-			<button><input type="file" name="produto_imagem" class="from-control" id="imagem_prod">
+			<button><input type="file" name="produto_imagem" class="from-control" id="imagem_prod" value='<?php echo $imagem; ?>'>
 			</button>
 					
 				

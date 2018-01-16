@@ -140,16 +140,8 @@ $preco = $resultado_prod['preco_prod'];
 
 				<div class="row work-pagination animate-box" data-animate-effect="fadeInLeft">
 					<div class="col-md-8 col-md-offset-2 col-sm-12 col-sm-offset-0">
-
-						<div class="col-md-4 col-sm-4 col-xs-4 text-center">
-							<a href="verartigos.php?cod=<?php echo $_GET['cod']; ?>"><i class="icon-long-arrow-left"></i> <span> Artigo anterior</span></a>
-						</div>
-						<div class="col-md-4 col-sm-4 col-xs-4 text-center">
-							<a href="artigos.php"><i class="icon-th-large"></i></a>
-						</div>
-						<div class="col-md-4 col-sm-4 col-xs-4 text-center">
-							<a href="verartigos.php?cod=<?php echo $_GET['cod']; ?>"><span>Artigo seguinte </span> <i class="icon-long-arrow-right"></i></a>
-						</div>
+					<p class="col-md-12 text-center col-lg-offset-2 col-lg-8">
+						<a href="artigos.php" class="btn btn-primary btn-outline">Voltar</a></p>
 					</div>
 				</div>
 

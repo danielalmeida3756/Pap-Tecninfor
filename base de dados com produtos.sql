@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: 10-Jan-2018 às 16:58
+-- Generation Time: 16-Jan-2018 às 16:41
 -- Versão do servidor: 5.7.19
 -- PHP Version: 5.6.31
 
@@ -45,10 +45,10 @@ CREATE TABLE IF NOT EXISTS `produtos` (
 --
 
 INSERT INTO `produtos` (`id`, `nome_prod`, `descricao_prod`, `sub_prod`, `imagem_prod`, `preco_prod`, `diretorio_prod`) VALUES
-(36, 'Pc Intel v2', 'Equipado com processador intel core i3-330, motherboard HM65MAL, 4Gb de ram, SSD de 120 Gb e Windows 10 Pro. Este computador Ã© bom para quem procura um computador com um pouco mais de desempenho.', 'Intel core i3-330, 4Gb de ram, SSD 120 Gb', '5dd766abed1c1371c646f547130b4324.jpg', '335', 'images/'),
-(37, 'Pc Intel v3', 'Equipado com processador intel core i5-2410M, motherboard HM65MAL, 8Gb de ram, SSD de 120 Gb e Windows 10 Pro. Este computador Ã© bom para quem procura um computador para entrar no mundo dos jogos.', 'Intel core i5-2410M, 8Gb de ram, SSD 120 Gb', 'e580a93ba164ed6def57798d54bec7f5.jpg', '415', 'images/'),
-(34, 'Pc Intel v1', 'Equipado com processador intel core B940, motherboard HM65MAL, 4Gb de ram, SSD de 120 Gb e Windows 10 Pro. Este computador Ã© bom para quem procura um computador a baixo preÃ§o com bom desempenho.', 'Intel core B940, 4Gb de ram, SSD 120 Gb', '83a3104058be80bd65047d8e96bcc9e0.jpg', '259', 'images/'),
-(38, 'Pc Intel v4', 'Equipado com processador intel core i7-2620M, motherboard HM65MAL, 8Gb de ram, SSD 120 Gb e Windows 10 Pro. Este computador Ã© bom para quem procura um computador para jogar com uma boa taxa de fps e para trabalho com ediÃ§Ã£o de videos e imagem.', 'Intel core i7-2620M, 8Gb de ram, SSD 120 Gb', '4599b89c63faec268355444d6ecf0711.jpg', '499', 'images/');
+(2, 'Pc Intel v2', 'Equipado com processador intel core i3-330, motherboard HM65MAL, 4Gb de ram, SSD de 120 Gb e Windows 10 Pro. Este computador Ã© bom para quem procura um computador com um pouco mais de desempenho.', 'Intel core i3-330, 4Gb de ram, SSD 120 Gb', '5dd766abed1c1371c646f547130b4324.jpg', '335', 'images/'),
+(3, 'Pc Intel v3', 'Equipado com processador intel core i5-2410M, motherboard HM65MAL, 8Gb de ram, SSD de 120 Gb e Windows 10 Pro. Este computador Ã© bom para quem procura um computador para entrar no mundo dos jogos.', 'Intel core i5-2410M, 8Gb de ram, SSD 120 Gb', 'e580a93ba164ed6def57798d54bec7f5.jpg', '415', 'images/'),
+(1, 'Pc Intel v1', 'Equipado com processador intel core B940, motherboard HM65MAL, 4Gb de ram, SSD de 120 Gb e Windows 10 Pro. Este computador Ã© bom para quem procura um computador a baixo preÃ§o com bom desempenho.', 'Intel core B940, 4Gb de ram, SSD 120 Gb', '1dcad8115cecafe0ed408d244a7eb06d.jpg', '259', 'images/'),
+(4, 'Pc Intel v4', 'Equipado com processador intel core i7-2620M, motherboard HM65MAL, 8Gb de ram, SSD 120 Gb e Windows 10 Pro. Este computador Ã© bom para quem procura um computador para jogar com uma boa taxa de fps e para trabalho com ediÃ§Ã£o de videos e imagem.', 'Intel core i7-2620M, 8Gb de ram, SSD 120 Gb', '4599b89c63faec268355444d6ecf0711.jpg', '499', 'images/');
 
 -- --------------------------------------------------------
 

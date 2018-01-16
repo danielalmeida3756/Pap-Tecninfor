@@ -65,8 +65,11 @@ $conn = new mysqli($host, $login, $password, $dbname) or print (mysql_error());
 	<script src="js/respond.min.js"></script>
 	<![endif]-->
 
+
 	</head>
 	<body>
+	
+	
 
 	<div id="fh5co-page">
 		<a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle"><i></i></a>
@@ -102,20 +105,22 @@ $conn = new mysqli($host, $login, $password, $dbname) or print (mysql_error());
 			<div class="fh5co-narrow-content">
 				<h2 class="fh5co-heading animate-box" data-animate-effect="fadeInLeft">Artigos disponiveis para venda</span></h2>
 				<div class="row animate-box" data-animate-effect="fadeInLeft">
-					<div class="col-md-4 col-sm-6 col-xs-6 work-item" style = "float: left; position: relative"  >
+					<div class="col-md-4 col-sm-6 col-xs-6 work-item" >
 					<?php
-						$linha=mysqli_fetch_assoc($resultado_prod);
+						$linha=mysqli_fetch_assoc($resultado_prod);  
+
 					do{
 					?>
-
+						
 						<a href="verartigo.php?cod=<?php echo $linha['id'] ?>">
 							<td class="text-center"><img src= "<?php echo $linha['diretorio_prod'].$linha['imagem_prod']?> " class="img-responsive"></td>
 							<h3 class="fh5co-work-title"><td class="text-center"><?php echo $linha['nome_prod']?></td></h3>
 							<p><td class="text-center"><?php echo $linha['sub_prod']?></td> </p>
 						</a>
+					
 					<?php
 					}while($linha=mysqli_fetch_assoc($resultado_prod));
-					?>
+					?></div>
 					</div>
 					
 					<div class="clearfix visible-md-block visible-sm-block"></div>
