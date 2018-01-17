@@ -4,7 +4,22 @@ $nivel = $_SESSION['permicao'];
 	if ($nivel == 0){
 		header("Location: index.php");
 	}
+	
+$host ="localhost";
+$login ="root";
+$password="";
+$dbname ="tecninfor";
+
+$conn = new mysqli($host, $login, $password, $dbname) or print (mysql_error());
+$id_user = $_GET['cod'];
+ 
+	$consulta =mysqli_query($conn, "SELECT * FROM registo WHERE id='$id_user'");
+	$resultado = mysqli_fetch_array($consulta);
+	
+$nome= $resultado['nome'];
+
 ?>
+
 
 <!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
@@ -96,27 +111,29 @@ $nivel = $_SESSION['permicao'];
 		<div id="fh5co-main">
 				<h2> </h2>
 
-		<div class="fh5co-narrow-content">
+		<div class="fh5co-narrow-content" >
 				<h2 class="fh5co-heading animate-box" data-animate-effect="fadeInLeft">Editar Permissão </span></h2>
+				
+				<p class="animate-box" data-animate-effect="fadeInLeft">Utilizador <?php echo $nome; ?>.</p>
+				
+			<div class="row animate-box" data-animate-effect="fadeInLeft" >
+			<form method="post" name="contact-form" class="contact-form col-lg-offset-4 col-lg-5" action="editarpermicao.php?cod=<?php echo $id_user; ?>">
 			
-					<p class="animate-box" data-animate-effect="fadeInLeft">Utilizador <?php echo $_GET['cod']?>.</p>
+			<input type="radio" name="permissao" value="0" checked> Utilizador Normal <br>
+			<input type="radio" name="permissao" value="1"> Administrador<br>
+			</div>
+			<div class="row animate-box" data-animate-effect="fadeInLeft">
 			
-
-	<div class="row animate-box" data-animate-effect="fadeInLeft">
-			<form method="post" name="contact-form" class="contact-form col-lg-offset-4 col-lg-5" action="editarpermicao.php?cod=<?php echo $_GET['cod']; ?>">
-<select name="permissao">
-	<optgroup label="Permissões">
-	<option value="0">Utilizador Normal ( 0 )</option>
-	<option value="1">Administrador ( 1 )</option>
-</optgroup>
-			<input type='submit' name='permissao_alterar' class="btn btn-primary btn-outline" />
-	</div>
-	
-	</form>	
+			<div align="middle">
+				<input type='submit' name='permissao_alterar' class="btn btn-primary btn-outline" />
+			</div>
+			</div>
+			</form>	
+			
 	</div>
 	</div>	
-		<div class="col-sm-4 col-xs-4 text-center col-lg-offset-3 col-lg-5 col-md-12">
-         <div class="row animate-box" data-animate-effect="fadeInLeft"><p class="col-md-12 col-lg-7 col-lg-offset-5">
+		<div class="col-sm-4 col-xs-4 text-center col-lg-offset-3 col-lg-5 col-md-12 ">
+         <div class="row animate-box" data-animate-effect="fadeInLeft">
 		<p class="col-md-12 col-lg-6 col-lg-offset-6"><a href="listarutilizadores.php" class="btn btn-primary btn-outline">Voltar</a></p>
 		
 	 	 </div>

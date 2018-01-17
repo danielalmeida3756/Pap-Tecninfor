@@ -131,7 +131,7 @@ $preco = $resultado_prod['preco_prod'];
 								<h2><?php echo $preco ?> €</h2>
 								
 								<li>Adicionar ao seu carrinho</li>
-								</p><p><a href="off.php?cod=<?php echo $id_prod; ?>" class="btn btn-primary btn-outline">Adicionar</a></p>
+								</p><p><a href="compras.php?acao=add&id=<?php echo $id_prod; ?>" class="btn btn-primary btn-outline">Adicionar</a></p>
 							</ul>
 						</div>
 
