@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: 17-Jan-2018 às 10:55
+-- Generation Time: 23-Jan-2018 às 22:15
 -- Versão do servidor: 5.7.19
 -- PHP Version: 5.6.31
 
@@ -55,7 +55,7 @@ CREATE TABLE IF NOT EXISTS `produtos` (
   `preco_prod` double(10,2) NOT NULL,
   `diretorio_prod` varchar(500) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=39 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=41 DEFAULT CHARSET=latin1;
 
 --
 -- Extraindo dados da tabela `produtos`
@@ -65,7 +65,9 @@ INSERT INTO `produtos` (`id`, `nome_prod`, `descricao_prod`, `sub_prod`, `imagem
 (2, 'Pc Intel v2', 'Equipado com processador intel core i3-330, motherboard HM65MAL, 4Gb de ram, SSD de 120 Gb e Windows 10 Pro. Este computador Ã© bom para quem procura um computador com um pouco mais de desempenho.', 'Intel core i3-330, 4Gb de ram, SSD 120 Gb', '5dd766abed1c1371c646f547130b4324.jpg', 335.00, 'images/'),
 (3, 'Pc Intel v3', 'Equipado com processador intel core i5-2410M, motherboard HM65MAL, 8Gb de ram, SSD de 120 Gb e Windows 10 Pro. Este computador Ã© bom para quem procura um computador para entrar no mundo dos jogos.', 'Intel core i5-2410M, 8Gb de ram, SSD 120 Gb', 'e580a93ba164ed6def57798d54bec7f5.jpg', 415.00, 'images/'),
 (1, 'Pc Intel v1', 'Equipado com processador intel core B940, motherboard HM65MAL, 4Gb de ram, SSD de 120 Gb e Windows 10 Pro. Este computador Ã© bom para quem procura um computador a baixo preÃ§o com bom desempenho.', 'Intel core B940, 4Gb de ram, SSD 120 Gb', '1dcad8115cecafe0ed408d244a7eb06d.jpg', 259.00, 'images/'),
-(4, 'Pc Intel v4', 'Equipado com processador intel core i7-2620M, motherboard HM65MAL, 8Gb de ram, SSD 120 Gb e Windows 10 Pro. Este computador Ã© bom para quem procura um computador para jogar com uma boa taxa de fps e para trabalho com ediÃ§Ã£o de videos e imagem.', 'Intel core i7-2620M, 8Gb de ram, SSD 120 Gb', '4599b89c63faec268355444d6ecf0711.jpg', 499.00, 'images/');
+(4, 'Pc Intel v4', 'Equipado com processador intel core i7-2620M, motherboard HM65MAL, 8Gb de ram, SSD 120 Gb e Windows 10 Pro. Este computador Ã© bom para quem procura um computador para jogar com uma boa taxa de fps e para trabalho com ediÃ§Ã£o de videos e imagem.', 'Intel core i7-2620M, 8Gb de ram, SSD 120 Gb', '4599b89c63faec268355444d6ecf0711.jpg', 499.00, 'images/'),
+(5, 'Android Box', 'Modelo MXQ S805 Preta, equipada com processador Cortex A5, 1.5GHz Quad Core, GPU Mali-450, 1 Gb de ram, 8 Gb de Rom, Android 4.4, Wifi IEEE 802.11 b/g/n, Bluetooth 4.0. Interface: DC 5V, TF Card, USB 2.0, SPDIF, HDMI, OTG e AV.', 'Quad Core 1.5GHz, 1 Gb de ram, 8 Gb de Rom, Android 4.4', '9c1d290abab33d726471a6f1b13a55c8.jpg', 50.00, 'images/'),
+(6, 'Android Box', 'Modelo CS918 Preta, equipada com processador RK3188T, Quad Core, 2 Gb de ram, 8 Gb de Rom, Android 4.4, Wifi IEEE 802.11 b/g/n, . Interface: DC 5V, TF Card, 2x USB 2.0, SPDIF, HDMI, Ethernet Port, OTG e AV.', 'Quad Core, 2 Gb de ram, 8 Gb de Rom, Android 4.4', 'd97a32da46db783909200c0a250b7dd1.jpg', 65.00, 'images/');
 
 -- --------------------------------------------------------
 
