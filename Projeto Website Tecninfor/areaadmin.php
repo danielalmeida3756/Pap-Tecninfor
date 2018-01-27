@@ -97,7 +97,7 @@ $nivel = $_SESSION['permicao'];
 			<div class="fh5co-narrow-content">
 				<h2 class="fh5co-heading animate-box" data-animate-effect="fadeInLeft">Área de administrador </span></h2>
 				<div class="row animate-box" data-animate-effect="fadeInLeft">
-					<p class="animate-box" data-animate-effect="fadeInLeft"> Bem vindo Administrador há sua área exclusiva.</p>
+					<p class="animate-box" data-animate-effect="fadeInLeft"> Bem vindo Administrador à sua área exclusiva.</p>
 			</div>
                 <div class="col-sm-4 col-xs-4 text-center col-lg-offset-3 col-lg-5 col-md-12">
                 <div class="row animate-box" data-animate-effect="fadeInLeft">

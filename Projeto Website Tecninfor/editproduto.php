@@ -106,6 +106,7 @@ $imagem= $resultado_prod['diretorio_prod'].$resultado_prod['imagem_prod'];
 $descricao = $resultado_prod['descricao_prod'];
 $sub = $resultado_prod['sub_prod'];
 $preco = $resultado_prod['preco_prod'];
+$quantidade = $resultado_prod['quantidade'];
 ?>
 				
 			</ul></nav>
@@ -140,14 +141,18 @@ $preco = $resultado_prod['preco_prod'];
                 <div class="form-group">
                     <input name="produto_sub" type="name" class="form-control" id="sub_prod" value='<?php echo $sub; ?>' >
 				 </div> </div>
-            <div class="col-md-6 col-sm-6 col-xs-12 pad-l-3 col-lg-8 col-lg-offset-2">
-                <div class="form-group contact-field">
-                    <input name="produto_preco" type="int" class="form-control" id="preco_prod" value='<?php echo $preco; ?>' >  
-			</div>
+            <div class="col-md-6 col-sm-6 col-xs-12 col-lg-8 col-lg-offset-2">
+                <div class="form-group">
+                    <input name="produto_preco" type="int" class="form-control" id="preco_prod" value='<?php echo $preco; ?>' > 
+			</div></div>
+			<div class="col-md-6 col-sm-6 col-xs-12 col-lg-8 col-lg-offset-2">
+                <div class="form-group">
+                    <input name="quantidade_preco" type="int" class="form-control" id="quantidade" value='<?php echo $quantidade; ?>' >  
+			</div></div>
 				<div class="col-md-6 col-sm-6 col-xs-12 pad-l-3 col-lg-8 col-lg-offset-2">
-                <div class="form-group contact-field">
+                <div class="form-group contact-field text-center">
 				
-			<label for="recipient-name" class="from-control-label">Imagem:</label>
+			<label for="recipient-name" class="from-control-label">Imagem</label></br>
 			<button><input type="file" name="produto_imagem" class="from-control" id="imagem_prod" value='<?php echo $imagem; ?>'>
 			</button>
 					

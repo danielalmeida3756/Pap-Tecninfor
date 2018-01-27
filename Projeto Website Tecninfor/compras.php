@@ -1,4 +1,4 @@
-<? 
+<?php
 session_start();
 
 $host ="localhost";
@@ -77,16 +77,13 @@ $conn = new mysqli($host, $login, $password, $dbname) or print (mysql_error());
 					<li><a href="artigos.php">Artigos</a></li>
 					<li><a href="sobre.php">Sobre</a></li>
 					<li><a href="contatos.php">Contatos</a></li>
-					<li class="fh5co-active"><a href="compras.php">Carrinho</a></li>
+					<li class="fh5co-active"><a href="compras.php">Carrinho </a></li>
 					<p></p>
 		
 <?php
-//INICIO A SESSÃO
-session_start();
  
 //Verifico se o usuário está logado no sistema
 	if (!isset($_SESSION["logado"]) || $_SESSION["logado"] != TRUE) {
-		header("Location: login.php");
     	echo "<li>Não tem sessão iniciada</li>";
 		echo '<small><a href="login.php?token='.md5(session_id()).'">Entrar</a></small>';
 	}
@@ -102,30 +99,42 @@ session_start();
 		<div id="fh5co-main">
 
 			<div class="fh5co-narrow-content">
-				<h2 class="fh5co-heading animate-box" data-animate-effect="fadeInLeft">Carrinho</span></h2>
+				<h2 class="fh5co-heading animate-box" data-animate-effect="fadeInLeft">Carrinho </span></h2>
 				<div class="row animate-box" data-animate-effect="fadeInLeft">
 					<div class="col-md-4 col-sm-6 col-xs-6 col-xxs-12 work-item">
-						<a href="work.html">
-							<img src="images/work_1.jpg" alt="Erro a carregar a imagem !" class="img-responsive">
-							<h3 class="fh5co-work-title">1 </h3>
-							<p>descrição</p>
-						</a>
+					
+<?php
+
+$procurar_dados = mysqli_query($conn, "SELECT * FROM carrinho WHERE nome_user = '".$_SESSION['nome']."'");
+$fetch_dados = mysqli_fetch_array($procurar_dados);
+$rows_dados = mysqli_num_rows($procurar_dados);
+
+
+if($rows_dados <= 0) {
+	
+echo "Não existe nada no carrinho!";
+
+} else {
+
+echo "<table class ='table table-striped table-bordered table-condensed table-hover'>";
+echo "<td>Nome</td><td>Preço</td><td>Quantidade</td><tr>";
+
+do {
+	
+echo "<td>".$fetch_dados['nome']."</td>";
+echo "<td>".$fetch_dados['preco']."€</td>";
+echo "<td>".$fetch_dados['qtd']."</td><td><a href='carrinho.php?eliminar&id=".$fetch_dados['cod']."'>Eliminar</a></td><tr>";
+	
+} while($fetch_dados = mysqli_fetch_array($procurar_dados));
+  
+echo "</table>";
+  
+}
+   
+ ?>
+	
 					</div>
-					<div class="col-md-4 col-sm-6 col-xs-6 col-xxs-12 work-item">
-						<a href="work.html">
-							<img src="images/work_2.jpg" alt="Erro a carregar a imagem !" class="img-responsive">
-							<h3 class="fh5co-work-title">2 </h3>
-							<p>descrição</p>
-						</a>
-					</div>
-					<div class="clearfix visible-sm-block"></div>
-					<div class="col-md-4 col-sm-6 col-xs-6 col-xxs-12 work-item">
-						<a href="work.html">
-							<img src="images/work_3.jpg" alt="Erro a carregar a imagem !" class="img-responsive">
-							<h3 class="fh5co-work-title">3 </h3>
-							<p>descrição</p>
-					</div>
-				
+					
 					<div class="clearfix visible-md-block"></div>
 					
 				</div>

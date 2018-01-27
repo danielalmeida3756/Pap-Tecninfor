@@ -125,7 +125,8 @@ $linha=mysqli_fetch_assoc($resultado_prod);
 	<td class="text-center"> Nome</td>
 	<td class="text-center"> Descrição</td>
 	<td class="text-center"> Sub Descrição</td>
-	<td class="text-center"> Preço</td> 
+	<td class="text-center"> Preço</td>
+	<td class="text-center"> Quantidade</td>
 	<td class="text-center"> Imagem</td>
 	<td class="text-center"> Ação</td>
 	</tr>
@@ -141,6 +142,7 @@ do{
 <td class="text-center"><?php echo $linha['descricao_prod']?></td>
 <td class="text-center"><?php echo $linha['sub_prod']?></td>
 <td class="text-center"><?php echo $linha['preco_prod']?></td>
+<td class="text-center"><?php echo $linha['quantidade']?></td>
 <td class="text-center"><img src= "<?php echo $linha['diretorio_prod'].$linha['imagem_prod']?>" width="100" height="auto"></td>	
 
 <td class="text-center"><a href='editproduto.php?cod=<?php echo $linha['id'];?>'>Editar</a>&nbsp &nbsp &nbsp<a href='eliminarproduto.php?cod=<?php echo $linha['id'];?>&diretorio=<?php echo $linha['diretorio_prod'];?>&ficheiro=<?php echo $linha['imagem_prod']; ?>'>Eliminar</a></td></tr>

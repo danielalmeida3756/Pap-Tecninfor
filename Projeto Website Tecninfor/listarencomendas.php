@@ -1,5 +1,9 @@
 <?php
 session_start();
+$nivel = $_SESSION['permicao'];
+	if ($nivel == 0){
+		header("Location: index.php");
+	}
 
 $host ="localhost";
 $login ="root";
@@ -9,9 +13,11 @@ $dbname ="tecninfor";
 $conn = new mysqli($host, $login, $password, $dbname) or print (mysql_error());
 
  
-	$consulta = "SELECT * FROM produtos ORDER BY id ASC ";
+	$consulta = "SELECT * FROM carrinho ORDER BY id ASC ";
 	$resultado_prod = mysqli_query($conn, $consulta);
+
 ?>
+
 <!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
@@ -65,11 +71,8 @@ $conn = new mysqli($host, $login, $password, $dbname) or print (mysql_error());
 	<script src="js/respond.min.js"></script>
 	<![endif]-->
 
-
 	</head>
 	<body>
-	
-	
 
 	<div id="fh5co-page">
 		<a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle"><i></i></a>
@@ -79,12 +82,13 @@ $conn = new mysqli($host, $login, $password, $dbname) or print (mysql_error());
 			<nav id="fh5co-main-menu" role="navigation">
 				<ul>
 					<li> <a href="index.php">Home</a></li>
-					<li class="fh5co-active"><a href="artigos.php">Artigos</a></li>
+					<li><a href="artigos.php">Artigos</a></li>
 					<li><a href="sobre.php">Sobre</a></li>
 					<li><a href="contatos.php">Contatos</a></li>
 					<li><a href="compras.php">Carrinho</a></li>
-					<p></p>		
-<?php
+					<p></p>
+		
+<?php				
 //Verifico se o usuário está logado no sistema
 	if (!isset($_SESSION["logado"]) || $_SESSION["logado"] != TRUE) {
     	echo "<li>Não tem sessão iniciada</li>";
@@ -94,8 +98,7 @@ $conn = new mysqli($host, $login, $password, $dbname) or print (mysql_error());
     	echo "<li>Olá, ".$_SESSION["nome"]."</li>";
 		echo '<small><a href="logout.php?token='.md5(session_id()).'">Sair</a></small>';
 	}
-?> 
-				
+?>
 			</ul></nav>
 
 		</aside>
@@ -103,34 +106,58 @@ $conn = new mysqli($host, $login, $password, $dbname) or print (mysql_error());
 		<div id="fh5co-main">
 
 			<div class="fh5co-narrow-content">
-				<h2 class="fh5co-heading animate-box" data-animate-effect="fadeInLeft">Artigos disponiveis para venda</span></h2>
+				<h2 class="fh5co-heading animate-box" data-animate-effect="fadeInLeft">Encomendas realizadas </span></h2>
 				<div class="row animate-box" data-animate-effect="fadeInLeft">
-					
-					<?php
-						$linha=mysqli_fetch_assoc($resultado_prod);  
+					<p class="animate-box" data-animate-effect="fadeInLeft"> Aqui pode ver as encomendas realizadas pelos utilizadores.</p>
+				</div>
+			
+<div class="row animate-box" data-animate-effect="fadeInLeft">
+<?php
 
-					do{
-					?>
-					<div class="col-md-4 col-sm-6 col-xs-6 col-xxs-12 work-item text-center" >
-						
-						<a href="verartigo.php?cod=<?php echo $linha['id'] ?>">
-							<td class="text-center"><img src= "<?php echo $linha['diretorio_prod'].$linha['imagem_prod']?> " class="img-responsive" width="250" height="120"></td>
-							</a>
-							
-							<h3 class="fh5co-work-title"><?php echo $linha['nome_prod']?></td></h3>
-							<p><?php echo $linha['sub_prod']?></td> </p>
-							
-					</div>
-					<?php
-					}while($linha=mysqli_fetch_assoc($resultado_prod));
-					?>
-					</div>
-					
-					<div class="clearfix visible-md-block visible-sm-block"></div>
+$linha=mysqli_fetch_assoc($resultado_prod);
+	
+?>
 
-					</div>
-					<div class="clearfix visible-md-block"></div>
-					
+<table class ="table table-striped table-bordered table-condensed table-hover">
+<thead>
+<tr>
+	<td class="text-center"> Codigo</td>
+	<td class="text-center"> Nome do utilizador</td>
+	<td class="text-center"> Email do utilizador</td>
+	<td class="text-center"> Nome do produto</td>
+	<td class="text-center"> Preço</td>
+	<td class="text-center"> Quantidade</td>
+	<td class="text-center"> Ação</td>
+	</tr>
+</thead>
+<tbody>
+	
+<?php
+do{
+?>
+<tr>
+<td class="text-center"><?php echo $linha['cod']?></td>
+<td class="text-center"><?php echo $linha['nome_user']?></td>
+<td class="text-center"><?php echo $linha['email_user']?></td>
+<td class="text-center"><?php echo $linha['nome']?></td>
+<td class="text-center"><?php echo $linha['preco']?></td>
+<td class="text-center"><?php echo $linha['qtd']?></td>
+
+<td class="text-center"><a href='editproduto.php?cod=<?php echo $linha['id'];?>'>Eliminar</a></td></tr>
+
+<?php
+}while($linha=mysqli_fetch_assoc($resultado_prod));
+?>
+	
+</tbody>
+</table>		
+
+	<p></p>
+	<div class="col-sm-4 col-xs-4 text-center col-lg-offset-3 col-lg-5 col-md-12">
+                <div class="row animate-box" data-animate-effect="fadeInLeft">
+							
+							<p class="col-md-12"><a href="areaadmin.php" class="btn btn-primary btn-outline">Voltar</a></p>
+				</div>
 				</div>
 			</div>
 		</div>
@@ -150,9 +177,10 @@ $conn = new mysqli($host, $login, $password, $dbname) or print (mysql_error());
 	<script src="js/jquery.waypoints.min.js"></script>
 	<!-- Counters -->
 	<script src="js/jquery.countTo.js"></script>
-		
+	
+	
 	<!-- MAIN JS -->
 	<script src="js/main.js"></script>
-
 	</body>
 </html>
+

@@ -1,17 +1,4 @@
-<?php
-session_start();
 
-$host ="localhost";
-$login ="root";
-$password="";
-$dbname ="tecninfor";
-
-$conn = new mysqli($host, $login, $password, $dbname) or print (mysql_error());
-
- 
-	$consulta = "SELECT * FROM produtos ORDER BY id ASC ";
-	$resultado_prod = mysqli_query($conn, $consulta);
-?>
 <!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
@@ -20,14 +7,13 @@ $conn = new mysqli($host, $login, $password, $dbname) or print (mysql_error());
 	<head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Tecninfor</title>
-	<link rel="shotcut icon" href="favicon.png" type="image/x.png">
+	<title>Tecninfor </title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="description" content="Loja de reparações e venda de produtos informaticos" />
 	<meta name="keywords" content="reparação, smartphone, tablet, computador, software, tinteiros, toners" />
 	<meta name="author" content="DanielAlmeida" />
 
-
+  
 
   	<!-- Facebook and Twitter integration -->
 	<meta property="og:title" content=""/>
@@ -65,73 +51,81 @@ $conn = new mysqli($host, $login, $password, $dbname) or print (mysql_error());
 	<script src="js/respond.min.js"></script>
 	<![endif]-->
 
-
 	</head>
 	<body>
-	
-	
 
 	<div id="fh5co-page">
 		<a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle"><i></i></a>
 		<aside id="fh5co-aside" role="complementary" class="border js-fullheight">
 
-			<h1 id="fh5co-logo"><a href="index.php"><img src="images/logo.png" alt="Erro ao carregar a imagem !"></a></h1>
+			<h1 id="fh5co-logo"><a href="home.php"><img src="images/logo.png" alt="Erro ao carregar a imagem !"></a></h1>
 			<nav id="fh5co-main-menu" role="navigation">
 				<ul>
-					<li> <a href="index.php">Home</a></li>
-					<li class="fh5co-active"><a href="artigos.php">Artigos</a></li>
+					<li> <a href="home.php">Home</a></li>
+					<li> <a href="artigos.php">Artigos</a></li>
+					<li><a href="promocoes.php">Promoções</a></li>
 					<li><a href="sobre.php">Sobre</a></li>
 					<li><a href="contatos.php">Contatos</a></li>
-					<li><a href="compras.php">Carrinho</a></li>
-					<p></p>		
-<?php
-//Verifico se o usuário está logado no sistema
-	if (!isset($_SESSION["logado"]) || $_SESSION["logado"] != TRUE) {
-    	echo "<li>Não tem sessão iniciada</li>";
-		echo '<small><a href="login.php?token='.md5(session_id()).'">Entrar</a></small>';
-	}
-	else {
-    	echo "<li>Olá, ".$_SESSION["nome"]."</li>";
-		echo '<small><a href="logout.php?token='.md5(session_id()).'">Sair</a></small>';
-	}
-?> 
-				
-			</ul></nav>
+					<li><a href="off.php">Login</a></li>
+				</ul>
+			</nav>
+
+			<div class="fh5co-footer">
+				<p><small>&copy; 2017 Daniel Almeida </span> </a></span></small></p>
+				<ul>
+					<li><a href="https://www.facebook.com/tecninfor/"><i class="icon-facebook"></i></a></li>
+				</ul>
+			</div>
 
 		</aside>
 
 		<div id="fh5co-main">
 
 			<div class="fh5co-narrow-content">
-				<h2 class="fh5co-heading animate-box" data-animate-effect="fadeInLeft">Artigos disponiveis para venda</span></h2>
-				<div class="row animate-box" data-animate-effect="fadeInLeft">
-					
-					<?php
-						$linha=mysqli_fetch_assoc($resultado_prod);  
+				<div class="row">
 
-					do{
-					?>
-					<div class="col-md-4 col-sm-6 col-xs-6 col-xxs-12 work-item text-center" >
+					<div class="col-md-12 animate-box" data-animate-effect="fadeInLeft">
+						<figure class="text-center">
+							<img src="images/work.jpg" alt="Free HTML5 Bootstrap" class="img-responsive">
+						</figure>
+					</div>
+					
+					<div class="col-md-8 col-md-offset-2 animate-box" data-animate-effect="fadeInLeft">
 						
-						<a href="verartigo.php?cod=<?php echo $linha['id'] ?>">
-							<td class="text-center"><img src= "<?php echo $linha['diretorio_prod'].$linha['imagem_prod']?> " class="img-responsive" width="250" height="120"></td>
-							</a>
-							
-							<h3 class="fh5co-work-title"><?php echo $linha['nome_prod']?></td></h3>
-							<p><?php echo $linha['sub_prod']?></td> </p>
-							
-					</div>
-					<?php
-					}while($linha=mysqli_fetch_assoc($resultado_prod));
-					?>
-					</div>
-					
-					<div class="clearfix visible-md-block visible-sm-block"></div>
+						<div class="col-md-9 col-md-push-3">
+							<h1>Computador Advanced</h1>
+							<p>Equipado com processador intel core i7, motherboard HM55MAL, 8Gb de ram, SSD 120 Gb e Windows 10 Pro. Este computador é bom para quem procura um computador para jogar com uma boa taxa de fps e para trabalho com edição de videos e imagem..</p>
+
+						</div>
+
+						<div class="col-md-3 col-md-pull-9 fh5co-services">
+							<h3>Comprar</h3>
+							<ul>
+								<li>Aqui pode</li>
+								<li>adicionar ao</li>
+								<li>seu carrinho</li>
+								<li></li>
+							</ul>
+						</div>
 
 					</div>
-					<div class="clearfix visible-md-block"></div>
-					
 				</div>
+
+				<div class="row work-pagination animate-box" data-animate-effect="fadeInLeft">
+					<div class="col-md-8 col-md-offset-2 col-sm-12 col-sm-offset-0">
+
+						<div class="col-md-4 col-sm-4 col-xs-4 text-center">
+							<a href="v3.php"><i class="icon-long-arrow-left"></i> <span> Artigo anterior</span></a>
+						</div>
+						<div class="col-md-4 col-sm-4 col-xs-4 text-center">
+							<a href="artigos.php"><i class="icon-th-large"></i></a>
+						</div>
+						<div class="col-md-4 col-sm-4 col-xs-4 text-center">
+							<a href="off.php"><span>Artigo seguinte </span> <i class="icon-long-arrow-right"></i></a>
+						</div>
+					</div>
+				</div>
+
 			</div>
 		</div>
 	</div>
@@ -150,9 +144,11 @@ $conn = new mysqli($host, $login, $password, $dbname) or print (mysql_error());
 	<script src="js/jquery.waypoints.min.js"></script>
 	<!-- Counters -->
 	<script src="js/jquery.countTo.js"></script>
-		
+	
+	
 	<!-- MAIN JS -->
 	<script src="js/main.js"></script>
 
 	</body>
 </html>
+

@@ -105,11 +105,12 @@ $nivel = $_SESSION['permicao'];
 $tecninfor=mysqli_connect('localhost','root','');
 $escolheBD=mysqli_select_db($tecninfor,'tecninfor');
 
-$pesquisa="select * from registo";
+$pesquisa="select * from registo ORDER BY id ASC";
 
 $resultado=mysqli_query($tecninfor,$pesquisa);
 
 $linha=mysqli_fetch_assoc($resultado);
+	
 ?>
 	
 <table class ="table table-striped table-bordered table-condensed table-hover">
@@ -130,7 +131,7 @@ do{
 <tr>
 <td class="text-center"><?php echo $linha['id']?></td>
 <td class="text-center"><?php echo $linha['nome']?></td>
-<td class="text-center"><?php echo $linha['permicao']?></td>
+<td class="text-center"><?php echo $linha['permicao'] ?></td>
 
 <td class="text-center"><a href='permicao.php? cod=<?php echo $linha['id']?>'>Editar Permissão</a></td>
 </tr>

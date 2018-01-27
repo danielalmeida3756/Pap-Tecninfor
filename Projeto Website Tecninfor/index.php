@@ -102,11 +102,11 @@ session_start();
 					<div class="owl-carousel-fullwidth animate-box" data-animate-effect="fadeInLeft">
 		            <div class="item">
 		            	
-		              	<p class="text-center quote">&ldquo; Fundada no dia 1 de Abril de 2015, esta loja em Avintes, repara todo o tipo de produtos eletrônicos.  &rdquo; </p>
+		              	<p class="text-center quote">&ldquo; Fundada no dia 1 de abril de 2015, esta loja, em Avintes, repara todo o tipo de produtos eletrónicos.  &rdquo; </p>
 		            </div>
 		            <div class="item">
 		            	
-		              	<p class="text-center quote">&ldquo; Revenda de programas de faturação para o seu negocio ! &rdquo;<cite class="author"></p>
+		              	<p class="text-center quote">&ldquo; Revenda de programas de faturação para o seu negócio ! &rdquo;<cite class="author"></p>
 		            </div>
 		          </div>
 				</div>

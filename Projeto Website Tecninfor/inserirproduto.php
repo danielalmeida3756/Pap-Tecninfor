@@ -8,6 +8,7 @@ mysql_select_db('tecninfor');
 	$sub = $_POST['produto_sub'];
 	$imagem = $_FILES['produto_imagem'];
 	$preco = $_POST['produdo_preco'];
+	$quantidade = $_POST['produdo_quantidade'];
 	
 		
 	if(isset($_POST['Add_produto'])) {
@@ -42,7 +43,7 @@ mysql_select_db('tecninfor');
 	}
 	
 
-$inserir_dados = mysql_query("INSERT INTO produtos (nome_prod,descricao_prod,sub_prod,imagem_prod,preco_prod,diretorio_prod) VALUES ('$name','$descricao','$sub','$novo_nome','$preco','$diretorio')");
+$inserir_dados = mysql_query("INSERT INTO produtos (nome_prod,descricao_prod,sub_prod,imagem_prod,preco_prod,diretorio_prod,quantidade) VALUES ('$name','$descricao','$sub','$novo_nome','$preco','$diretorio','$quantidade')");
 	if(!$inserir_dados){
           echo"<script language='javascript' type='text/javascript'>alert('Não foi possível inserir o produto ! ');window.location.href='listarprodutos.php'</script>";
         }else{

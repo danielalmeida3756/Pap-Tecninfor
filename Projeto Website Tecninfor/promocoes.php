@@ -1,17 +1,4 @@
-<?php
-session_start();
 
-$host ="localhost";
-$login ="root";
-$password="";
-$dbname ="tecninfor";
-
-$conn = new mysqli($host, $login, $password, $dbname) or print (mysql_error());
-
- 
-	$consulta = "SELECT * FROM produtos ORDER BY id ASC ";
-	$resultado_prod = mysqli_query($conn, $consulta);
-?>
 <!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
@@ -21,7 +8,6 @@ $conn = new mysqli($host, $login, $password, $dbname) or print (mysql_error());
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title>Tecninfor</title>
-	<link rel="shotcut icon" href="favicon.png" type="image/x.png">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="description" content="Loja de reparações e venda de produtos informaticos" />
 	<meta name="keywords" content="reparação, smartphone, tablet, computador, software, tinteiros, toners" />
@@ -65,11 +51,8 @@ $conn = new mysqli($host, $login, $password, $dbname) or print (mysql_error());
 	<script src="js/respond.min.js"></script>
 	<![endif]-->
 
-
 	</head>
 	<body>
-	
-	
 
 	<div id="fh5co-page">
 		<a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle"><i></i></a>
@@ -79,56 +62,50 @@ $conn = new mysqli($host, $login, $password, $dbname) or print (mysql_error());
 			<nav id="fh5co-main-menu" role="navigation">
 				<ul>
 					<li> <a href="index.php">Home</a></li>
-					<li class="fh5co-active"><a href="artigos.php">Artigos</a></li>
+					<li><a href="artigos.php">Artigos</a></li>
+					<li class="fh5co-active"><a href="promocoes.php">Promoções</a></li>
 					<li><a href="sobre.php">Sobre</a></li>
 					<li><a href="contatos.php">Contatos</a></li>
-					<li><a href="compras.php">Carrinho</a></li>
-					<p></p>		
-<?php
-//Verifico se o usuário está logado no sistema
-	if (!isset($_SESSION["logado"]) || $_SESSION["logado"] != TRUE) {
-    	echo "<li>Não tem sessão iniciada</li>";
-		echo '<small><a href="login.php?token='.md5(session_id()).'">Entrar</a></small>';
-	}
-	else {
-    	echo "<li>Olá, ".$_SESSION["nome"]."</li>";
-		echo '<small><a href="logout.php?token='.md5(session_id()).'">Sair</a></small>';
-	}
-?> 
-				
-			</ul></nav>
+					<li><a href="login.php">Login</a></li>
+				</ul>
+			</nav>
+
+			<div class="fh5co-footer">
+				<p><small>&copy; 2017 Daniel Almeida</span></small></p>
+				<ul>
+					<li><a href="https://www.facebook.com/tecninfor/"><i class="icon-facebook"></i></a></li>
+				</ul>
+			</div>
 
 		</aside>
 
 		<div id="fh5co-main">
 
 			<div class="fh5co-narrow-content">
-				<h2 class="fh5co-heading animate-box" data-animate-effect="fadeInLeft">Artigos disponiveis para venda</span></h2>
+				<h2 class="fh5co-heading animate-box" data-animate-effect="fadeInLeft">Artigos em Promoção</span></h2>
 				<div class="row animate-box" data-animate-effect="fadeInLeft">
-					
-					<?php
-						$linha=mysqli_fetch_assoc($resultado_prod);  
-
-					do{
-					?>
-					<div class="col-md-4 col-sm-6 col-xs-6 col-xxs-12 work-item text-center" >
-						
-						<a href="verartigo.php?cod=<?php echo $linha['id'] ?>">
-							<td class="text-center"><img src= "<?php echo $linha['diretorio_prod'].$linha['imagem_prod']?> " class="img-responsive" width="250" height="120"></td>
-							</a>
-							
-							<h3 class="fh5co-work-title"><?php echo $linha['nome_prod']?></td></h3>
-							<p><?php echo $linha['sub_prod']?></td> </p>
-							
+					<div class="col-md-4 col-sm-6 col-xs-6 col-xxs-12 work-item">
+						<a href="work.html">
+							<img src="images/work_1.jpg" alt="Erro a carregar a imagem !" class="img-responsive">
+							<h3 class="fh5co-work-title">1 </h3>
+							<p>descrição</p>
+						</a>
 					</div>
-					<?php
-					}while($linha=mysqli_fetch_assoc($resultado_prod));
-					?>
+					<div class="col-md-4 col-sm-6 col-xs-6 col-xxs-12 work-item">
+						<a href="work.html">
+							<img src="images/work_2.jpg" alt="Erro a carregar a imagem !" class="img-responsive">
+							<h3 class="fh5co-work-title">2 </h3>
+							<p>descrição</p>
+						</a>
 					</div>
-					
-					<div class="clearfix visible-md-block visible-sm-block"></div>
-
+					<div class="clearfix visible-sm-block"></div>
+					<div class="col-md-4 col-sm-6 col-xs-6 col-xxs-12 work-item">
+						<a href="work.html">
+							<img src="images/work_3.jpg" alt="Erro a carregar a imagem !" class="img-responsive">
+							<h3 class="fh5co-work-title">3 </h3>
+							<p>descrição</p>
 					</div>
+				
 					<div class="clearfix visible-md-block"></div>
 					
 				</div>
@@ -150,9 +127,12 @@ $conn = new mysqli($host, $login, $password, $dbname) or print (mysql_error());
 	<script src="js/jquery.waypoints.min.js"></script>
 	<!-- Counters -->
 	<script src="js/jquery.countTo.js"></script>
-		
+	
+	
+	
 	<!-- MAIN JS -->
 	<script src="js/main.js"></script>
 
 	</body>
 </html>
+

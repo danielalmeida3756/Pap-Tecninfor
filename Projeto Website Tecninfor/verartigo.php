@@ -17,6 +17,7 @@ $nome= $resultado_prod['nome_prod'];
 $imagem= $resultado_prod['diretorio_prod'].$resultado_prod['imagem_prod'];
 $descricao = $resultado_prod['descricao_prod'];
 $preco = $resultado_prod['preco_prod'];
+$quantidade = $resultado_prod['quantidade'];
 
 ?>
 <!DOCTYPE html>
@@ -111,7 +112,7 @@ $preco = $resultado_prod['preco_prod'];
 				
 					<div class="col-md-12 animate-box" data-animate-effect="fadeInLeft">
 						<figure class="text-center">
-							<img src="<?php echo $imagem ?> " class="img-responsive" alt="Erro ao carregar a imagem !">
+							<img src="<?php echo $imagem ?> " class="img-responsive" width="802" height="534" alt="Erro ao carregar a imagem !">
 						</figure>
 					</div>
 					
@@ -124,14 +125,15 @@ $preco = $resultado_prod['preco_prod'];
 
 						</div>
 
-						<div class="col-md-3 col-md-pull-9 fh5co-services">
+						<div class="col-md-3 col-md-pull-9 fh5co-services text-center">
 							<h3>Comprar</h3>
 							<ul>
 								<li></li>
 								<h3><?php echo $preco ?> €</h3>
 								
-								<li>Adicionar ao seu carrinho</li>
-								</p><p><a href="compras.php?acao=add&id=<?php echo $id_prod; ?>" class="btn btn-primary btn-outline">Adicionar</a></p>
+								<h5><?php echo $quantidade ?> artigos disponiveis</h5>
+								
+								</p><p><a href="carrinho.php?add&id=<?php echo $id_prod; ?>" class="btn btn-primary btn-outline">Adicionar</a></p>
 							</ul>
 						</div>
 
