@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 session_start();
 $nivel = $_SESSION['permicao'];
 	if ($nivel == 0){
@@ -106,7 +106,6 @@ $imagem= $resultado_prod['diretorio_prod'].$resultado_prod['imagem_prod'];
 $descricao = $resultado_prod['descricao_prod'];
 $sub = $resultado_prod['sub_prod'];
 $preco = $resultado_prod['preco_prod'];
-$quantidade = $resultado_prod['quantidade'];
 ?>
 				
 			</ul></nav>
@@ -144,10 +143,6 @@ $quantidade = $resultado_prod['quantidade'];
             <div class="col-md-6 col-sm-6 col-xs-12 col-lg-8 col-lg-offset-2">
                 <div class="form-group">
                     <input name="produto_preco" type="int" class="form-control" id="preco_prod" value='<?php echo $preco; ?>' > 
-			</div></div>
-			<div class="col-md-6 col-sm-6 col-xs-12 col-lg-8 col-lg-offset-2">
-                <div class="form-group">
-                    <input name="quantidade_preco" type="int" class="form-control" id="quantidade" value='<?php echo $quantidade; ?>' >  
 			</div></div>
 				<div class="col-md-6 col-sm-6 col-xs-12 pad-l-3 col-lg-8 col-lg-offset-2">
                 <div class="form-group contact-field text-center">

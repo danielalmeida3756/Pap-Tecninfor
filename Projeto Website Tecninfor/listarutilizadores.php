@@ -112,7 +112,6 @@ $resultado=mysqli_query($tecninfor,$pesquisa);
 $linha=mysqli_fetch_assoc($resultado);
 	
 ?>
-	
 <table class ="table table-striped table-bordered table-condensed table-hover">
 <thead>
 <tr>
@@ -127,13 +126,15 @@ $linha=mysqli_fetch_assoc($resultado);
 <?php
 do{
 ?>
-	
+<form method="post" name="contact-form" class="contact-form col-lg-offset-4 col-lg-5" action="editarpermicao.php?editar&cod=<?php echo $linha['id']; ?>">
+
 <tr>
 <td class="text-center"><?php echo $linha['id']?></td>
 <td class="text-center"><?php echo $linha['nome']?></td>
-<td class="text-center"><?php echo $linha['permicao'] ?></td>
+<td class="text-center"><input type="text" name="permissao_user" value="<?php echo $linha['permicao']?>" size="1"></td>
+<td class="text-center"><input type='submit' value="Editar" name='editar' class="btn btn-primary btn-outline"></td>
+</form>	
 
-<td class="text-center"><a href='permicao.php? cod=<?php echo $linha['id']?>'>Editar Permissão</a></td>
 </tr>
 	
 <?php

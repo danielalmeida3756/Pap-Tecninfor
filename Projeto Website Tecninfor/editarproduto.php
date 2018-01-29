@@ -7,7 +7,6 @@ $nome = $_POST['produto'];
 $descricao = $_POST['produto_descricao'];
 $sub = $_POST['produto_sub'];
 $preco = $_POST['produto_preco'];
-$quantidade = $_FILES['produto_quantidade'];
 $imagem = $_FILES['produto_imagem'];
 $id = $_GET['cod'];
 
@@ -19,8 +18,8 @@ if(isset($_POST['Editar_produto'])) {
 					
 					move_uploaded_file($_FILES['produto_imagem']['tmp_name'], $diretorio.$novo_nome);
 	}
+	$editar_produto = mysql_query("UPDATE produtos SET id= '$idnovo', nome_prod = '$nome',descricao_prod = '$descricao',sub_prod = '$sub',preco_prod = '$preco', imagem_prod = '$novo_nome' WHERE id='$id'");
 
-	$editar_produto = mysql_query("UPDATE produtos SET id= '$idnovo', nome_prod = '$nome',descricao_prod = '$descricao',sub_prod = '$sub',preco_prod = '$preco', imagem_prod = '$novo_nome', quantidade = '$quantidade' WHERE id='$id'");
 	
 		if(!$editar_produto){
 			echo"<script language='javascript' type='text/javascript'>alert('Não foi possível alterar o produto ! ');window.location.href='listarprodutos.php'</script>";

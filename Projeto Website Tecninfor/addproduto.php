@@ -121,10 +121,6 @@ $nivel = $_SESSION['permicao'];
                 <div class="form-group">
                     <input name="produdo_preco" type="int" class="form-control" id="preco_prod" placeholder="Preço" >  
 			</div></div>
-			 <div class="col-md-6 col-sm-6 col-xs-12 col-lg-8 col-lg-offset-2">
-                <div class="form-group">
-                    <input name="produdo_quantidade" type="int" class="form-control" id="quantidade" placeholder="Quantidade" >  
-			</div></div>
 			
 				<div class="col-md-6 col-sm-6 col-xs-12 pad-l-3 col-lg-8 col-lg-offset-2">
                 <div class="form-group contact-field text-center">

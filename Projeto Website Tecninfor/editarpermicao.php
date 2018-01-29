@@ -1,15 +1,22 @@
 <?php
-@mysql_connect('localhost','root','') or die ("<script language='javascript' type='text/javascript'>alert('Não foi possivel conectar a base de dados !');window.location.href='index.php'</script>");
-mysql_select_db('tecninfor');
+session_start();
 
-$permissao = $_POST['permissao'];
+$host ="localhost";
+$login ="root";
+$password="";
+$dbname ="tecninfor";
+
+$conn = new mysqli($host, $login, $password, $dbname) or print (mysql_error());
+
+if(isset($_GET['editar'])) {
+	
+$permissao_editar = $_POST['permissao_user'];
+
 $id = $_GET['cod'];
 
-	$inserir_permissao = mysql_query("UPDATE registo SET permicao = '$permissao' WHERE id='$id'");
-		if(!$inserir_permissao){
-			echo"<script language='javascript' type='text/javascript'>alert('Não foi possível alterar a permissao ! ');window.location.href='listarutilizadores.php'</script>";
-        }else{
-		   echo"<script language='javascript' type='text/javascript'>alert('Permissao alterada com sucesso !');window.location.href='listarutilizadores.php'</script>";
-        }
+	$inserir_permissao = mysqli_query($conn,"UPDATE registo SET permicao = '$permissao_editar' WHERE id='$id'");
+
+	header('location: listarutilizadores.php');
+}
 
 ?>

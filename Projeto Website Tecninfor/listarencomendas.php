@@ -127,6 +127,7 @@ $linha=mysqli_fetch_assoc($resultado_prod);
 	<td class="text-center"> Nome do produto</td>
 	<td class="text-center"> Preço</td>
 	<td class="text-center"> Quantidade</td>
+	<td class="text-center"> Estado</td>
 	<td class="text-center"> Ação</td>
 	</tr>
 </thead>
@@ -136,14 +137,19 @@ $linha=mysqli_fetch_assoc($resultado_prod);
 do{
 ?>
 <tr>
-<td class="text-center"><?php echo $linha['cod']?></td>
+
+<form method="post" name="contact-form" class="contact-form col-lg-offset-4 col-lg-5" action="carrinho.php?estado&cod=<?php echo $linha['id']; ?>">
+
+<td class="text-center"><?php echo $linha['id']?></td>
 <td class="text-center"><?php echo $linha['nome_user']?></td>
 <td class="text-center"><?php echo $linha['email_user']?></td>
 <td class="text-center"><?php echo $linha['nome']?></td>
 <td class="text-center"><?php echo $linha['preco']?></td>
 <td class="text-center"><?php echo $linha['qtd']?></td>
+<td class="text-center"><input type="text" name="estado_prod" value="<?php echo $linha['estado']?>" size="10"><input type='submit' value="Editar" name='estado' class="btn btn-primary btn-outline" /></td>
 
-<td class="text-center"><a href='editproduto.php?cod=<?php echo $linha['id'];?>'>Eliminar</a></td></tr>
+</form>	
+<td class="text-center"><a href='carrinho.php?remover&cod=<?php echo $linha['id'];?>'>Eliminar</a></td></tr>
 
 <?php
 }while($linha=mysqli_fetch_assoc($resultado_prod));

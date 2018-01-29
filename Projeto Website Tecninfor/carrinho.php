@@ -1,5 +1,4 @@
 <?php
-
 session_start();
 
 $host ="localhost";
@@ -8,16 +7,6 @@ $password="";
 $dbname ="tecninfor";
 
 $conn = new mysqli($host, $login, $password, $dbname) or print (mysql_error());
-
-if(isset($_GET['eliminar'])) {
-	
-$id = $_GET['id'];
-
-$apagar = mysqli_query($conn, "DELETE FROM carrinho WHERE cod = '$id'");
-
-header('location: compras.php');
-	
-}
 
 if(isset($_GET['add'])) {
 	
@@ -43,4 +32,34 @@ header('location: compras.php');
 	
 }
 
+if(isset($_GET['estado'])) {
+
+$id = $_GET['cod'];
+$estado_novo = $_POST['estado_prod'];
+
+$inserir_estado = mysqli_query($conn,"UPDATE carrinho SET estado = '$estado_novo' WHERE id='$id'");
+	
+header('location: listarencomendas.php');
+}
+
+
+if(isset($_GET['eliminar'])) {
+	
+$id = $_GET['id'];
+
+$apagar = mysqli_query($conn, "DELETE FROM carrinho WHERE id = '$id'");
+
+header('location: compras.php');
+	
+}
+
+if(isset($_GET['remover'])) {
+	
+$id = $_GET['cod'];
+
+$apagar = mysqli_query($conn, "DELETE FROM carrinho WHERE id = '$id'");
+
+header('location: listarencomendas.php');
+	
+}
 ?>

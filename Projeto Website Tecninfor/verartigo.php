@@ -131,8 +131,6 @@ $quantidade = $resultado_prod['quantidade'];
 								<li></li>
 								<h3><?php echo $preco ?> €</h3>
 								
-								<h5><?php echo $quantidade ?> artigos disponiveis</h5>
-								
 								</p><p><a href="carrinho.php?add&id=<?php echo $id_prod; ?>" class="btn btn-primary btn-outline">Adicionar</a></p>
 							</ul>
 						</div>
