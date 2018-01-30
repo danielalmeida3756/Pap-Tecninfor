@@ -156,6 +156,7 @@ do{
 	<option value ="Em Analise">Em Analise</option>
 	<option value ="Aceite">Aceite</option>
 	<option value ="Entregue">Entregue</option>
+	<option value ="Pronta">Pronta</option>
 	<?php }?>
 
 <?php
@@ -163,7 +164,8 @@ do{
 	?>
 	<option value ="Em Analise">Em Analise</option>
 	<option value ="Em Processo">Em Processo</option>
-	<option value ="Entregue">Entregue</option>	
+	<option value ="Entregue">Entregue</option>
+	<option value ="Pronta">Pronta</option>
 	<?php }?>
 
 <?php
@@ -171,7 +173,8 @@ do{
 	?>
 	<option value ="Aceite">Aceite</option>
 	<option value ="Em Processo">Em Processo</option>
-	<option value ="Entregue">Entregue</option>	
+	<option value ="Entregue">Entregue</option>
+	<option value ="Pronta">Pronta</option>	
 	<?php }?>
 
 <?php
@@ -179,6 +182,16 @@ do{
 	?>
 	<option value ="Em Analise">Em Analise</option>
 	<option value ="Aceite">Aceite</option>
+	<option value ="Em Processo">Em Processo</option>
+	<option value ="Pronta">Pronta</option>
+	<?php }?>
+	
+<?php
+	if($linha['estado'] == "Pronta"){
+	?>
+	<option value ="Em Analise">Em Analise</option>
+	<option value ="Aceite">Aceite</option>
+	<option value ="Entregue">Entregue</option>
 	<option value ="Em Processo">Em Processo</option>
 	<?php }?>
 
