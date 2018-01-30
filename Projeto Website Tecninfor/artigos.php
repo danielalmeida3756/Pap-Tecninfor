@@ -114,7 +114,7 @@ $conn = new mysqli($host, $login, $password, $dbname) or print (mysql_error());
 					<div class="col-md-4 col-sm-6 col-xs-6 col-xxs-12 work-item text-center" >
 						
 						<a href="verartigo.php?cod=<?php echo $linha['id'] ?>">
-							<td class="text-center"><img src= "<?php echo $linha['diretorio_prod'].$linha['imagem_prod']?> " class="img-responsive" width="250" height="120"></td>
+							<td class="text-center"><img src= "<?php echo $linha['diretorio_prod'].$linha['imagem_prod']?> " class="img-responsive" width="280" height="140"></td>
 							</a>
 							
 							<h3 class="fh5co-work-title"><?php echo $linha['nome_prod']?></td></h3>

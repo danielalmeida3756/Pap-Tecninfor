@@ -18,6 +18,8 @@ $conn = new mysqli($host, $login, $password, $dbname) or print (mysql_error());
 
 ?>
 
+<meta HTTP-EQUIV='refresh' CONTENT='5;URL=listarencomendas.php'>
+
 <!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
@@ -106,12 +108,9 @@ $conn = new mysqli($host, $login, $password, $dbname) or print (mysql_error());
 		<div id="fh5co-main">
 
 			<div class="fh5co-narrow-content">
-				<h2 class="fh5co-heading animate-box" data-animate-effect="fadeInLeft">Encomendas realizadas </span></h2>
-				<div class="row animate-box" data-animate-effect="fadeInLeft">
-					<p class="animate-box" data-animate-effect="fadeInLeft"> Aqui pode ver as encomendas realizadas pelos utilizadores.</p>
-				</div>
+				<h2>Encomendas realizadas </span></h2>
+					<p "> Aqui pode ver as encomendas realizadas pelos utilizadores.</p>
 			
-<div class="row animate-box" data-animate-effect="fadeInLeft">
 <?php
 
 $linha=mysqli_fetch_assoc($resultado_prod);
@@ -146,7 +145,44 @@ do{
 <td class="text-center"><?php echo $linha['nome']?></td>
 <td class="text-center"><?php echo $linha['preco']?></td>
 <td class="text-center"><?php echo $linha['qtd']?></td>
-<td class="text-center"><input type="text" name="estado_prod" value="<?php echo $linha['estado']?>" size="10"><input type='submit' value="Editar" name='estado' class="btn btn-primary btn-outline" /></td>
+<td class="text-center">
+
+<select name="estado_prod">
+<option value="<?php echo $linha['estado']; ?>" selected><?php echo $linha['estado'] ?></option>
+
+<?php 
+	if($linha['estado'] == "Em Processo"){
+	?>
+	<option value ="Em Analise">Em Analise</option>
+	<option value ="Aceite">Aceite</option>
+	<option value ="Entregue">Entregue</option>
+	<?php }?>
+
+<?php
+	if($linha['estado'] == "Aceite"){
+	?>
+	<option value ="Em Analise">Em Analise</option>
+	<option value ="Em Processo">Em Processo</option>
+	<option value ="Entregue">Entregue</option>	
+	<?php }?>
+
+<?php
+	if($linha['estado'] == "Em Analise"){
+	?>
+	<option value ="Aceite">Aceite</option>
+	<option value ="Em Processo">Em Processo</option>
+	<option value ="Entregue">Entregue</option>	
+	<?php }?>
+
+<?php
+	if($linha['estado'] == "Entregue"){
+	?>
+	<option value ="Em Analise">Em Analise</option>
+	<option value ="Aceite">Aceite</option>
+	<option value ="Em Processo">Em Processo</option>
+	<?php }?>
+
+</select><input type='submit' value="Editar" name='estado' class="btn btn-primary btn-outline" /></td>
 
 </form>	
 <td class="text-center"><a href='carrinho.php?remover&cod=<?php echo $linha['id'];?>'>Eliminar</a></td></tr>
@@ -160,13 +196,9 @@ do{
 
 	<p></p>
 	<div class="col-sm-4 col-xs-4 text-center col-lg-offset-3 col-lg-5 col-md-12">
-                <div class="row animate-box" data-animate-effect="fadeInLeft">
-							
-							<p class="col-md-12"><a href="areaadmin.php" class="btn btn-primary btn-outline">Voltar</a></p>
-				</div>
-				</div>
-			</div>
-		</div>
+	
+							<p class="col-md-12"><a href="areaadmin.php" class="btn btn-primary btn-outline">Voltar</a></p>		
+	</div>
 	</div>
 
 	<!-- jQuery -->

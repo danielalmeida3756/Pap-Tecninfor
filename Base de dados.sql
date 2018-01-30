@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: 29-Jan-2018 às 18:57
+-- Generation Time: 30-Jan-2018 às 15:43
 -- Versão do servidor: 5.7.19
 -- PHP Version: 5.6.31
 
@@ -39,14 +39,15 @@ CREATE TABLE IF NOT EXISTS `carrinho` (
   `qtd` int(11) NOT NULL,
   `estado` varchar(50) NOT NULL DEFAULT 'Em Analise',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=39 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=50 DEFAULT CHARSET=latin1;
 
 --
 -- Extraindo dados da tabela `carrinho`
 --
 
 INSERT INTO `carrinho` (`id`, `cod`, `nome_user`, `email_user`, `nome`, `preco`, `qtd`, `estado`) VALUES
-(38, 1, 'administrador', 'almeida7.daniel.sousa@gmail.com', 'Pc Intel v1', 259.00, 1, 'Aceite');
+(44, 1, 'administrador', 'almeida7.daniel.sousa@gmail.com', 'Pc Intel v1', 259.00, 1, 'Em Analise'),
+(48, 5, 'daniel', 'a99375@epinfante.com', 'Android Box', 50.00, 1, 'Aceite');
 
 -- --------------------------------------------------------
 

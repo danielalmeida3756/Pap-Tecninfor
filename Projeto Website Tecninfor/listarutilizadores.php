@@ -131,7 +131,21 @@ do{
 <tr>
 <td class="text-center"><?php echo $linha['id']?></td>
 <td class="text-center"><?php echo $linha['nome']?></td>
-<td class="text-center"><input type="text" name="permissao_user" value="<?php echo $linha['permicao']?>" size="1"></td>
+<td class="text-center">
+<select name="permissao_user">
+<option value="<?php echo $linha['permicao']?>"selected>
+<?php if($linha['permicao'] == 1){
+	echo "Administrador";
+	}if($linha['permicao'] == 0){
+		echo "Utilizador";}
+	?></option>
+	<?php if($linha['permicao'] == 1){
+	?>
+	<option value ="0">Utilizador</option><?php }?>
+	<?php if($linha['permicao'] == 0){
+	?>
+	<option value ="1">Administrador</option><?php }?>
+</select></td>
 <td class="text-center"><input type='submit' value="Editar" name='editar' class="btn btn-primary btn-outline"></td>
 </form>	
 
