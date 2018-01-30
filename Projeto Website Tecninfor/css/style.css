@@ -83,7 +83,7 @@ figure {
   bottom: 0;
   top: 0;
   left: 0;
-  overflow-y: scroll;
+  overflow-y: hidden;
   -webkit-transition: 0.5s;
   -o-transition: 0.5s;
   transition: 0.5s;
@@ -360,7 +360,7 @@ body.offcanvas #fh5co-main, body.offcanvas .fh5co-nav-toggle {
 }
 .fh5co-testimonial .item figure img {
   max-width: inherit;
-  width: 90px;
+  width: 90444px;
   margin: 0 auto;
   -webkit-border-radius: 50%;
   -moz-border-radius: 50%;

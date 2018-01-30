@@ -78,7 +78,7 @@ $conn = new mysqli($host, $login, $password, $dbname) or print (mysql_error());
 
 	<div id="fh5co-page">
 		<a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle"><i></i></a>
-		<aside id="fh5co-aside" role="complementary" class="border js-fullheight">
+		<aside id="fh5co-aside" role="complementary" >
 
 			<h1 id="fh5co-logo"><a href="index.php"><img src="images/logo.png" alt="Erro ao carregar a imagem !"></a></h1>
 			<nav id="fh5co-main-menu" role="navigation">

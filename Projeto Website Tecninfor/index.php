@@ -124,9 +124,9 @@ session_start();
 							<p><a href="artigos.php" class="btn btn-md btn-primary">Ir para os artigos</a></p>
 						</div>
 						<div class="fh5co-card animate-box" data-animate-effect="fadeInLeft">
-							<h5>Promoções</h5>
-							<p> Estamos com artigos em promoção.</p>
-							<p><a href="promocoes.php" class="btn btn-md btn-primary">Ler mais</a></p>
+							<h5>Novos horários</h5>
+							<p> Temos novos horários na loja.</p>
+							<p><a href="contatos.php" class="btn btn-md btn-primary">Ler mais</a></p>
 						</div>
 
 					</div>	
