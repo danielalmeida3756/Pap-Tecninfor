@@ -140,10 +140,8 @@ session_start();
 					 			
 								<div class="fh5co-text">
 									<p class="animate-box fadeInLeft animated text-center" data-animate-effect="fadeInLeft">Horario da loja </a>
-									<p class="animate-box fadeInLeft animated text-center" data-animate-effect="fadeInLeft">Segunda,Quarta e Sexta: 10:00h-13:00h e 14:30h-19:00h </p>
-								
-									<p class="animate-box fadeInLeft animated text-center" data-animate-effect="fadeInLeft">Terça e Quinta: 9:00h-12:00h e 14:30h-19:00h </p>
-									<p class="animate-box fadeInLeft animated text-center" data-animate-effect="fadeInLeft">Sabado: 10:00h-12:30h </p>
+									<p class="animate-box fadeInLeft animated text-center" data-animate-effect="fadeInLeft">Segunda a Sexta: 9:30h-12:30h e 14:30h-19:00h </p>
+									<p class="animate-box fadeInLeft animated text-center" data-animate-effect="fadeInLeft">Sabado: 10:00h-12:00h </p>
 								  <p class="animate-box fadeInLeft animated text-center" data-animate-effect="fadeInLeft">Domingo: Encerrado </p>
 								</div>
 		</div>
