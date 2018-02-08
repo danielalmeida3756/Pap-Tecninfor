@@ -8,7 +8,9 @@ $dbname ="tecninfor";
 
 $conn = new mysqli($host, $login, $password, $dbname) or print (mysql_error());
 
-if(isset($_GET['add'])) {
+if(isset($_SESSION['logado'])) {
+
+if(isset($_GET['add'])) {		
 	
 $id = $_GET['id'];
 
@@ -27,6 +29,11 @@ $preco = $fetch_dados_em_carrinho['preco_prod'];
 $qtd = $fetch_dados_em_carrinho['quantidade'];
 
 $inserir_dado_em_carrinho = mysqli_query($conn, "INSERT INTO carrinho (cod,nome_user, email_user, nome, preco, qtd) VALUES ('$id','$user','$email','$nome','$preco','$qtd')");
+	
+header('location: compras.php');
+	
+}
+} else {
 	
 header('location: compras.php');
 	
